@@ -101,11 +101,8 @@ public class UserService {
             // Then, you can use this email to retrieve the corresponding User from your database
             Optional<Token> optionalToken = tokenRepository.findByValueAndDeletedAndExpiryAtBefore(email,false,tkn.getExpiryAt());
 
-            if (optionalToken.isEmpty()){
-                return null;
-            }
+            return optionalToken.map(Token::getUser).orElse(null);
 
-            return optionalToken.get().getUser();
         } catch (JwtException e) {
             // If the parsing fails or the token has expired, the token is invalid
             return null;
