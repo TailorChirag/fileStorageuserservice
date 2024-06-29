@@ -7,6 +7,7 @@ import chiragtailor.tech.filestorageuserservice.models.Token;
 import chiragtailor.tech.filestorageuserservice.models.User;
 import chiragtailor.tech.filestorageuserservice.repositories.TokenRepository;
 import chiragtailor.tech.filestorageuserservice.repositories.UserRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ import java.util.Date;
 import java.util.Optional;
 
 @Service
+@Primary
 public class UserService {
 
     private UserRepository userRepository;

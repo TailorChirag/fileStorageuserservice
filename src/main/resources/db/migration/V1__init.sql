@@ -5,6 +5,7 @@ CREATE TABLE token
     value      VARCHAR(255) NULL,
     user_id    BIGINT NULL,
     expiry_at  datetime NULL,
+    deleted    BIT(1) NOT NULL,
     CONSTRAINT pk_token PRIMARY KEY (id)
 );
 
